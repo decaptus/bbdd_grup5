@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS dsaBBDD;
 CREATE DATABASE dsaBBDD; 
 USE dsaBBDD; 
 
-CREATE TABLE Users 
+CREATE TABLE User 
 ( id_user INTEGER PRIMARY KEY NOT NULL, 
 username TEXT NOT NULL,
 email TEXT NOT NULL, 
@@ -10,16 +10,16 @@ password TEXT NOT NULL,
 nivel INTEGER
 )ENGINE = InnoDB;
 
-INSERT INTO Users VALUES (1,'Marta1','marta@gmail.com','Martacontra',1); 
-INSERT INTO Users VALUES (2,'Cacatua2','cacatua@gmail.com','Cacatuacontra',1); 
-INSERT INTO Users VALUES (3,'Montse3','montse@gmail.com','Montsecontra',1); 
-INSERT INTO Users VALUES (4,'Pere4','pere@gmail.com','Perecontra',1);
-INSERT INTO Users VALUES (5,'Alex5','alex@gmail.com','Mericontra',1); 
-INSERT INTO Users VALUES (6,'Meri6','meri@gmail.com','Mericontra',1); 
-INSERT INTO Users VALUES (7,'Sol7','sol@gmail.com','Solcontra',1); 
-INSERT INTO Users VALUES (8,'Kei8','kei@gmail.com','Keicontra',1); 
+INSERT INTO User VALUES (1,'Marta1','marta@gmail.com','Martacontra',1); 
+INSERT INTO User VALUES (2,'Cacatua2','cacatua@gmail.com','Cacatuacontra',1); 
+INSERT INTO User VALUES (3,'Montse3','montse@gmail.com','Montsecontra',1); 
+INSERT INTO User VALUES (4,'Pere4','pere@gmail.com','Perecontra',1);
+INSERT INTO User VALUES (5,'Alex5','alex@gmail.com','Mericontra',1); 
+INSERT INTO User VALUES (6,'Meri6','meri@gmail.com','Mericontra',1); 
+INSERT INTO User VALUES (7,'Sol7','sol@gmail.com','Solcontra',1); 
+INSERT INTO User VALUES (8,'Kei8','kei@gmail.com','Keicontra',1); 
 
-CREATE TABLE Partidas
+CREATE TABLE Partida
 ( id_partida INTEGER PRIMARY KEY NOT NULL, 
 fechaInicio DATE NOT NULL,
 horaInicio TIME ,
@@ -28,98 +28,92 @@ horaFin TIME ,
 score_partida INTEGER 
 )ENGINE = InnoDB;
 
-INSERT INTO Partidas VALUES (1,'14-12-20','11:00','14-12-20','11:30',600); 
-INSERT INTO Partidas VALUES (2,'15-12-20','4:00','15-12-20','4:45',300);
-INSERT INTO Partidas VALUES (3,'14-12-20','21:00','14-12-20','22:00',500);
-INSERT INTO Partidas VALUES (4,'14-12-20','22:00','14-12-20','23:30',700);
-INSERT INTO Partidas VALUES (5,'14-12-20','6:00','14-12-20','9:00',100);
-INSERT INTO Partidas VALUES (6,'14-12-20','9:00','14-12-20','19:00',200);
-INSERT INTO Partidas VALUES (7,'15-12-20','15:00','15-12-20','19:00',500);
-INSERT INTO Partidas VALUES (8,'14-12-20','12:00','14-12-20','13:00',600);
+INSERT INTO Partida VALUES (1,'14-12-20','11:00','14-12-20','11:30',600); 
+INSERT INTO Partida VALUES (2,'15-12-20','4:00','15-12-20','4:45',300);
+INSERT INTO Partida VALUES (3,'14-12-20','21:00','14-12-20','22:00',500);
+INSERT INTO Partida VALUES (4,'14-12-20','22:00','14-12-20','23:30',700);
+INSERT INTO Partida VALUES (5,'14-12-20','6:00','14-12-20','9:00',100);
+INSERT INTO Partida VALUES (6,'14-12-20','9:00','14-12-20','19:00',200);
+INSERT INTO Partida VALUES (7,'15-12-20','15:00','15-12-20','19:00',500);
+INSERT INTO Partida VALUES (8,'14-12-20','12:00','14-12-20','13:00',600);
 
-CREATE TABLE UsersPartidas			
+CREATE TABLE UserPartida			
 (id_player INTEGER,
  id_game INTEGER,
  FOREIGN KEY (id_player) REFERENCES Users (id_user),
  FOREIGN KEY (id_game) REFERENCES Partidas (id_partida)
 ) ENGINE = InnoDB;
 
-INSERT INTO UsersPartidas VALUES (1,1); 
-INSERT INTO UsersPartidas VALUES (2,2); 
-INSERT INTO UsersPartidas VALUES (3,3); 
-INSERT INTO UsersPartidas VALUES (4,4); 
-INSERT INTO UsersPartidas VALUES (5,5); 
-INSERT INTO UsersPartidas VALUES (6,6); 
-INSERT INTO UsersPartidas VALUES (7,7); 
-INSERT INTO UsersPartidas VALUES (8,8); 
+INSERT INTO UserPartida VALUES (1,1); 
+INSERT INTO UserPartida VALUES (2,2); 
+INSERT INTO UserPartida VALUES (3,3); 
+INSERT INTO UserPartida VALUES (4,4); 
+INSERT INTO UserPartida VALUES (5,5); 
+INSERT INTO UserPartida VALUES (6,6); 
+INSERT INTO UserPartida VALUES (7,7); 
+INSERT INTO UserPartida VALUES (8,8); 
 											//shop
-CREATE TABLE Orders
+CREATE TABLE Order
 (id_order INTEGER PRIMARY KEY NOT NULL, 
 fecha DATE NOT NULL,
 hora TIME
 )ENGINE = InnoDB;
 
-INSERT INTO Orders VALUES (1,'6-2-20','11:00'); 
-INSERT INTO Orders VALUES (2,'5-6-20','4:00');
-INSERT INTO Orders VALUES (3,'9-7-20','21:00');
-INSERT INTO Orders VALUES (4,'7-10-20','22:00');
-INSERT INTO Orders VALUES (5,'4-3-20','6:00');
-INSERT INTO Orders VALUES (6,'8-11-20','9:00');
-INSERT INTO Orders VALUES (7,'5-10-20','15:00');
-INSERT INTO Orders VALUES (8,'4-12-20','12:00');
+INSERT INTO Order VALUES (1,'6-2-20','11:00'); 
+INSERT INTO Order VALUES (2,'5-6-20','4:00');
+INSERT INTO Order VALUES (3,'9-7-20','21:00');
+INSERT INTO Order VALUES (4,'7-10-20','22:00');
+INSERT INTO Order VALUES (5,'4-3-20','6:00');
+INSERT INTO Order VALUES (6,'8-11-20','9:00');
+INSERT INTO Order VALUES (7,'5-10-20','15:00');
+INSERT INTO Order VALUES (8,'4-12-20','12:00');
 
-CREATE TABLE Products
+CREATE TABLE Product
 (id_product INTEGER PRIMARY KEY NOT NULL, 
 name TEXT NOT NULL,
 description TEXT NOT NULL
 )ENGINE = InnoDB;
 
-INSERT INTO Products VALUES (1,'AloeVera','Cura heridas'); 
-INSERT INTO Products VALUES (2,'Extintor','Apaga fuegos a 2 pixels de distancia'); 
-INSERT INTO Products VALUES (3,'Manguera','Apaga fuegos a 3 pixels de distancia'); 
-INSERT INTO Products VALUES (4,'Moneda','testing'); 
-INSERT INTO Products VALUES (5,'Diamante','2testing'); 
+INSERT INTO Product VALUES (1,'AloeVera','Cura heridas'); 
+INSERT INTO Product VALUES (2,'Extintor','Apaga fuegos a 2 pixels de distancia'); 
+INSERT INTO Product VALUES (3,'Manguera','Apaga fuegos a 3 pixels de distancia'); 
+INSERT INTO Product VALUES (4,'Moneda','testing'); 
+INSERT INTO Product VALUES (5,'Diamante','2testing'); 
 
-CREATE TABLE ProductsOrders		
+CREATE TABLE ProductOrder		
 (orderID INTEGER,
  productID INTEGER,
  FOREIGN KEY (orderID) REFERENCES Orders (id_order),
  FOREIGN KEY (productID) REFERENCES Products (id_product)
 ) ENGINE = InnoDB;
 
-INSERT INTO ProductsOrders VALUES (1,1); 
-INSERT INTO ProductsOrders VALUES (2,1);
-INSERT INTO ProductsOrders VALUES (3,2);
-INSERT INTO ProductsOrders VALUES (4,2);
-INSERT INTO ProductsOrders VALUES (5,3);
-INSERT INTO ProductsOrders VALUES (6,4);
-INSERT INTO ProductsOrders VALUES (7,3);
-INSERT INTO ProductsOrders VALUES (8,4);
+INSERT INTO ProductOrder VALUES (1,1); 
+INSERT INTO ProductOrder VALUES (2,1);
+INSERT INTO ProductOrder VALUES (3,2);
+INSERT INTO ProductOrder VALUES (4,2);
+INSERT INTO ProductOrder VALUES (5,3);
+INSERT INTO ProductOrder VALUES (6,4);
+INSERT INTO ProductOrder VALUES (7,3);
+INSERT INTO ProductOrder VALUES (8,4);
 
-CREATE TABLE UsersOrders		
+CREATE TABLE UserOrder		
 (userID INTEGER,
  orderID INTEGER,
  FOREIGN KEY (userID) REFERENCES Users (id_user),
  FOREIGN KEY (orderID) REFERENCES Orders (id_order)
 ) ENGINE = InnoDB;
 
-INSERT INTO UsersOrders VALUES (1,1); 
-INSERT INTO UsersOrders VALUES (2,2);
-INSERT INTO UsersOrders VALUES (3,4);
-INSERT INTO UsersOrders VALUES (4,3);
-INSERT INTO UsersOrders VALUES (5,6);
-INSERT INTO UsersOrders VALUES (6,5);
-INSERT INTO UsersOrders VALUES (7,8);
-INSERT INTO UsersOrders VALUES (8,7);
+INSERT INTO UserOrder VALUES (1,1); 
+INSERT INTO UserOrder VALUES (2,2);
+INSERT INTO UserOrder VALUES (3,4);
+INSERT INTO UserOrder VALUES (4,3);
+INSERT INTO UserOrder VALUES (5,6);
+INSERT INTO UserOrder VALUES (6,5);
+INSERT INTO UserOrder VALUES (7,8);
+INSERT INTO UserOrder VALUES (8,7);
 
-						//nose que necessitem
-CREATE TABLE Enemies
-( id_enemy VARCHAR PRIMARY KEY NOT NULL, 
-)ENGINE = InnoDB;
 
-CREATE TABLE Armas
-( id_arma INTEGER PRIMARY KEY NOT NULL, 
-)ENGINE = InnoDB;
+
 
 
 
