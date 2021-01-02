@@ -40,8 +40,8 @@ INSERT INTO Partida VALUES (8,'14-12-20','12:00','14-12-20','13:00',600);
 CREATE TABLE UserPartida			
 (id_player INTEGER,
  id_game INTEGER,
- FOREIGN KEY (id_player) REFERENCES Users (id_user),
- FOREIGN KEY (id_game) REFERENCES Partidas (id_partida)
+ FOREIGN KEY (id_player) REFERENCES User (id_user),
+ FOREIGN KEY (id_game) REFERENCES Partida (id_partida)
 ) ENGINE = InnoDB;
 
 INSERT INTO UserPartida VALUES (1,1); 
@@ -99,7 +99,7 @@ INSERT INTO ProductOrder VALUES (8,4);
 CREATE TABLE UserOrder		
 (userID INTEGER,
  orderID INTEGER,
- FOREIGN KEY (userID) REFERENCES Users (id_user),
+ FOREIGN KEY (userID) REFERENCES User (id_user),
  FOREIGN KEY (orderID) REFERENCES Orders (id_order)
 ) ENGINE = InnoDB;
 
